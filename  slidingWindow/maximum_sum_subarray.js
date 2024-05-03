@@ -1,6 +1,6 @@
 const maximumSumSubarray = (arr, k) =>{
     // const sums = []
-    let maxSum = 0
+    let maxSum = []
     let windowStart = 0;
     let windowSum = 0
 
@@ -8,18 +8,18 @@ const maximumSumSubarray = (arr, k) =>{
         windowSum += arr[windowEnd]
 
         if(windowEnd >= k-1){
-            // if(sums.length === 0) sums.push(windowSum)
-            // if(windowSum >= sums[0]){
-            //     sums.pop()
-            //     sums.push(windowSum)
-            // }
-            maxSum = Math.max(maxSum, windowSum)
+            if (maxSum.length === 0) maxSum.push(windowSum);
+            if (windowSum >= maxSum[0]) {
+              maxSum.pop();
+              maxSum.push(windowSum);
+            }
+            // maxSum = Math.max(maxSum, windowSum)
 
             windowSum -= arr[windowStart]
 
             windowStart++
         }
-    }return maxSum
+    }return maxSum[0]
 }
 
 const arr = [1, 3, 2,-1, 6, 4, 1, 8, 2];
