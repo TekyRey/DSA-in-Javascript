@@ -1,7 +1,8 @@
 const findAvgOfSubarrays = (arr, k) => {
     //sliding window approach
 
-    const results = []
+    // const results = []
+    let maxAvg = 0
     let windowSum = 0;
     let windowStart = 0;
 
@@ -14,12 +15,13 @@ const findAvgOfSubarrays = (arr, k) => {
         if( windowEnd >= k-1){
             //we are **Automatically** returning the window average once we have hit the window size
             //and pushing to the output array
-            let avg = windowSum / k;
-            if (results.length === 0) results.push(avg);
-            if (avg >= results[0]) {
-              results.pop();
-              results.push(avg);
-            }
+            // let avg = windowSum / k;
+            maxAvg = Math.max(maxAvg, windowSum/k)
+            // if (results.length === 0) results.push(avg);
+            // if (avg >= results[0]) {
+            //   results.pop();
+            //   results.push(avg);
+            // }
             // results.push(avg)
         
         //subtract element going out of sliding window
@@ -32,7 +34,7 @@ const findAvgOfSubarrays = (arr, k) => {
         //and repeating this process untill we ht the end of the array
     }
 }
-return results[0];
+return maxAvg;
 };
 
 const arr = [1, 3, 2, 6, -1, 4, 1, 8, 2];
