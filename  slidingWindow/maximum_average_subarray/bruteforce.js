@@ -16,3 +16,9 @@ const arr = [1, 3, 2, 6, -1, 4, 1, 8, 2];
 const k = 5;
 
 console.log(findAvgOfSubarrays(arr, k));
+
+/**
+ * Time complexity: since for every element we are calculating the sum of k elements,
+ * the time complexity is O(N) where n is the number of elements in the input array
+ * Space complexity is also O(N) becuse we are creating extra space results = []
+ */
